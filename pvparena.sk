@@ -1,0 +1,762 @@
+options:
+    nazwa: &f&k&l|||&6&lPvP&f&k&l|||&6&lZone&f&k&l|||
+    GUIprefix: &b&l[&6&lPandemia&b&l]
+    KitGUIPrefix: &b&l[&4&lKity&b&l]
+    GUIPearlName: &5&lPodgląd mapy
+    GUIPearlLore: &dSprawdź jak wygląda mapa
+    GUIEyeName: &3&lTeleport
+    GUIEyeLore: &bTeleportuj się na mapę
+
+command /pvp:
+    permission: kp.pvp
+    trigger:
+        execute console command "/mvtp %player% pvp"
+        wait 1 second
+        execute console command "/tp %player% 45 30 -20"
+        send title "&4&lPvP Arena" with subtitle "&6Witaj na spawnie trybu PvP" to player
+      
+command /pvp:admin:teleport <player>:
+    permission: kp.pvp.admin
+    trigger:
+        execute console command "/mvtp %arg-1% pvp"
+        wait 1 second
+        execute console command "/tp %arg-1% 45 30 -20"
+        send title "&4&lPvP Arena" with subtitle "&6Witaj na spawnie trybu PvP" to arg 1
+        send "&4&lPvP Arena &a&l Przeteleportowano &e&l%arg-1% &a&lna strefę PvP" to player
+
+command /pvp:map:
+    permission: kp.pvp
+    trigger:
+        SaveEQ(player)
+        execute console command "/tp %player% 45 30 -25"
+
+        wait 1 second
+        set {_PvPgui} to chest inventory with 7 rows named "{@GUIprefix}"
+        
+        set slot 0 of {_PvPgui} to filled map named "&6&lLas 1"
+        set slot 1 of {_PvPgui} to filled map named "&6&lLas 2"
+        set slot 2 of {_PvPgui} to filled map named "&6&lWioska"
+        set slot 3 of {_PvPgui} to filled map named "&6&lEpoka Lodowcowa"
+        set slot 4 of {_PvPgui} to filled map named "&6&lZamek" 
+        set slot 5 of {_PvPgui} to filled map named "&6&lMini zamek"
+        set slot 6 of {_PvPgui} to filled map named "&6&lCiemna otchłań"
+        set slot 7 of {_PvPgui} to filled map named "&6&lWild West"
+        set slot 8 of {_PvPgui} to filled map named "&6&lArena"
+        
+        set slot 9 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 10 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 11 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 12 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 13 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 14 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 15 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 16 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 17 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        
+        set slot 18 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 19 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 20 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 21 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 22 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 23 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 24 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 25 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 26 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        
+        set slot 27 of {_PvPgui} to filled map named "&6&lMisz-Masz"
+        set slot 28 of {_PvPgui} to filled map named "&6&lŻołądek"
+        set slot 29 of {_PvPgui} to filled map named "&6&lNether"
+        set slot 30 of {_PvPgui} to filled map named "&6&lOgród Kwarcowy"
+        set slot 31 of {_PvPgui} to filled map named "&6&lKrater"
+        set slot 32 of {_PvPgui} to filled map named "&6&lKing Of The Hill"
+        set slot 33 of {_PvPgui} to filled map named "&6&lPrzeWaga"
+        set slot 34 of {_PvPgui} to filled map named "&6&lZawiłe Piętra"
+        set slot 35 of {_PvPgui} to filled map named "&6&lSchody donikąd"
+        
+        set slot 36 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 37 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 38 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 39 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 40 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 41 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 42 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 43 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 44 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        
+        set slot 45 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 46 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 47 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 48 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 49 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 50 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 51 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 52 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 53 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+    
+        open {_PvPgui} to player
+            
+command /pvp:admin:map <player>:
+    permission: kp.pvp.admin
+    trigger:
+        execute console command "/tp %player% 45 30 -25"
+        SaveEQ(player)
+
+        wait 1 second
+        set {_PvPgui} to chest inventory with 7 rows named "{@GUIprefix}"
+        
+        set slot 0 of {_PvPgui} to filled map named "&6&lLas 1"
+        set slot 1 of {_PvPgui} to filled map named "&6&lLas 2"
+        set slot 2 of {_PvPgui} to filled map named "&6&lWioska"
+        set slot 3 of {_PvPgui} to filled map named "&6&lEpoka Lodowcowa"
+        set slot 4 of {_PvPgui} to filled map named "&6&lZamek" 
+        set slot 5 of {_PvPgui} to filled map named "&6&lMini zamek 1"
+        set slot 6 of {_PvPgui} to filled map named "&6&lMini zamek 2"
+        set slot 7 of {_PvPgui} to filled map named "&6&lWild West"
+        set slot 8 of {_PvPgui} to filled map named "&6&lArena"
+        
+        set slot 9 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 10 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 11 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 12 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 13 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 14 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 15 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 16 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 17 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        
+        set slot 18 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 19 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 20 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 21 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 22 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 23 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 24 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 25 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 26 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        
+        set slot 27 of {_PvPgui} to filled map named "&6&lMisz-Masz"
+        set slot 28 of {_PvPgui} to filled map named "&6&lŻołądek"
+        set slot 29 of {_PvPgui} to filled map named "&6&lNether"
+        set slot 30 of {_PvPgui} to filled map named "&6&lOgród Kwarcowy"
+        set slot 31 of {_PvPgui} to filled map named "&6&lKrater"
+        set slot 32 of {_PvPgui} to filled map named "&6&lKing Of The Hill"
+        set slot 33 of {_PvPgui} to filled map named "&6&lPrzeWaga"
+        set slot 34 of {_PvPgui} to filled map named "&6&lZawiłe Piętra"
+        set slot 35 of {_PvPgui} to filled map named "&6&lSchody donikąd"
+        
+        set slot 36 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 37 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 38 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 39 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 40 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 41 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 42 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 43 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        set slot 44 of {_PvPgui} to ender pearl named "{@GUIPearlName}"
+        
+        set slot 45 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 46 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 47 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 48 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 49 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 50 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 51 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 52 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+        set slot 53 of {_PvPgui} to ender eye named "{@GUIEyeName}"
+    
+        open {_PvPgui} to arg 1
+            
+command /pvp:stop:
+	permission: kp.pvp
+	trigger:
+		execute console command "/tp %player% 45 30 -20"
+		execute console command "/clear %player%"
+        
+command /pvp:powrót:
+	permission: kp.pvp
+	trigger:
+		if player's world = "pvp":
+			execute console command "/mvtp %player% survival"
+			execute console command "/clear %player%"
+			execute console command "/pvp:container:load %player%"
+		else:
+			send "&c&lNie możesz użyć komendy w tym wymiarze!" to player
+        
+command /pvp:container:save <player>:
+	usage: /pvp:container:save <Gracz>
+	permission: kp.pvp.admin
+	trigger:
+		SaveEQ(arg 1)
+
+command /pvp:container:load <player>:
+	usage: /pvp:container:load <Gracz>
+	permission: kp.pvp.admin
+	trigger:
+		LoadEQ(arg 1)
+        
+on inventory close:
+	event-inventory is not player's inventory
+	if name of event-inventory is "&e&lEkwipunek &a&l%player%":
+		delete {SavedInv::%player%::*}
+        
+on inventory click:
+	event-inventory is not player's inventory
+	if name of event-inventory is "{@GUIprefix}":
+		cancel event
+		if clicked slot is 9:
+			close {_PvPgui}
+			execute console command "/tp %player% 45 15 -94"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+		if clicked slot is 10:
+			close {_PvPgui}
+			execute console command "/tp %player% 47 10 46"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+		if clicked slot is 11:
+			close {_PvPgui}
+			execute console command "/tp %player% 80 27 79"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+            
+		if clicked slot is 12:
+			close {_PvPgui}
+			execute console command "/tp %player% 122 19 63"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+            
+		if clicked slot is 13:
+			close {_PvPgui}
+			execute console command "/tp %player% 152 28 43"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+            
+		if clicked slot is 14:
+			close {_PvPgui}
+			execute console command "/tp %player% 77 30 111"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+            
+		if clicked slot is 15:
+			close {_PvPgui}
+			execute console command "/tp %player% 110 33 12"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+
+            
+            
+		if clicked slot is 16:
+			close {_PvPgui}
+			execute console command "/tp %player% 77 27 47"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+            
+		if clicked slot is 17:
+			close {_PvPgui}
+			execute console command "/tp %player% 118 17 95"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+		if clicked slot is 36:
+			close {_PvPgui}
+			execute console command "/tp %player% 45 15 -33"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"            
+            
+		if clicked slot is 37:
+			close {_PvPgui}
+			execute console command "/tp %player% 114 21 160"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+		if clicked slot is 38:
+			close {_PvPgui}
+			execute console command "/tp %player% 161 22 90"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+		if clicked slot is 39:
+			close {_PvPgui}
+			execute console command "/tp %player% 77 24 15"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+		if clicked slot is 40:
+			close {_PvPgui}
+			execute console command "/tp %player% 45 26 101"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+		if clicked slot is 41:
+			close {_PvPgui}
+			execute console command "/tp %player% 163 25 172"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+		if clicked slot is 42:
+			close {_PvPgui}
+			execute console command "/tp %player% 195 23 148"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+		if clicked slot is 43:
+			close {_PvPgui}
+			execute console command "/tp %player% 45 22 79"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+		if clicked slot is 44:
+			close {_PvPgui}
+			execute console command "/tp %player% 45 23 15"
+            
+			MapPreviewTimer(player)
+			wait 60 second
+
+			execute console command "/pvp:admin:map %player%"
+            
+            
+            
+            
+            
+		if clicked slot is 18:
+			close {_PvPgui}
+			execute console command "/tp %player% 45 15 -94"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 19:
+			close {_PvPgui}
+			execute console command "/tp %player% 47 10 46"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 20:
+			close {_PvPgui}
+			execute console command "/tp %player% 80 27 79"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 21:
+			close {_PvPgui}
+			execute console command "/tp %player% 122 19 63"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 22:
+			close {_PvPgui}
+			execute console command "/tp %player% 152 28 43"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 23:
+			close {_PvPgui}
+			execute console command "/tp %player% 77 30 111"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 24:
+			close {_PvPgui}
+			execute console command "/tp %player% 110 33 12"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 25:
+			close {_PvPgui}
+			execute console command "/tp %player% 77 27 47"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 26:
+			close {_PvPgui}
+			execute console command "/tp %player% 118 17 95"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 45:
+			close {_PvPgui}
+			execute console command "/tp %player% 45 15 -33
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 46:
+			close {_PvPgui}
+			execute console command "/tp %player% 114 21 160"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 47:
+			close {_PvPgui}
+			execute console command "/tp %player% 161 22 90"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 48:
+			close {_PvPgui}
+			execute console command "/tp %player% 77 24 15"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 49:
+			close {_PvPgui}
+			execute console command "/tp %player% 45 26 101"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 50:
+			close {_PvPgui}
+			execute console command "/tp %player% 163 25 172"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 51:
+			close {_PvPgui}
+			execute console command "/tp %player% 195 23 148"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 52:
+			close {_PvPgui}
+			execute console command "/tp %player% 45 22 79"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+		if clicked slot is 53:
+			close {_PvPgui}
+			execute console command "/tp %player% 45 23 15"
+            
+			wait 1 second
+            
+			set {_KitGUI} to chest inventory with 3 rows named "{@KitGUIPrefix}"
+        
+			set slot 10 of {_KitGUI} to stick of knockback 5 named "&5&lKnockback"
+			set slot 12 of {_KitGUI} to iron helmet named "&7&lŻelazny Set"
+			set slot 14 of {_KitGUI} to diamond helmet named "&b&lDiamentowy Set"
+			set slot 16 of {_KitGUI} to bow named "&6&lOnly Łuk"
+    
+			open {_KitGUI} to player
+            
+on inventory click:
+	event-inventory is not player's inventory
+	if name of event-inventory is "{@KitGUIPrefix}":
+		cancel event
+		if clicked slot is 10:
+        
+			GiveKnockbackItems(player)
+
+            
+		if clicked slot is 12:
+
+			GiveIronPvPItems(player)
+            
+		if clicked slot is 14:
+       
+			GiveDiamondPvPItems(player)
+            
+		if clicked slot is 16:
+
+			GiveBowItems(player)
+            
+    
+function SaveEQ(p: player):
+	if {_p}'s world = "pvp":
+		send "&eZapisywanie ekwipunku" to {_p}
+		delete {SavedInv::%{_p}%::*}
+		loop items in inventory of {_p}:
+			add loop-item to {SavedInv::%{_p}%::*}
+                
+		execute console command "/clear %{_p}%"
+		send "&a&lZapisano ekwipunek" to {_p}
+	else:
+		send "&c&lNie możesz użyć komendy w tym wymiarze!" to {_p}
+        
+function LoadEQ(p: player):
+	open chest inventory with 5 rows named "&e&lEkwipunek &a&l%{_p}%" to {_p}
+	add {SavedInv::%{_p}%::*} to current inventory of {_p}
+    
+function GiveKnockbackItems(p: player):
+	execute console command "/clear %{_p}%"
+	give {_p} stick of knockback 5 named "{@nazwa}"
+	add bow named "{@nazwa}" to {_p}
+	give {_p}  64 arrow named "{@nazwa}"
+	add 16 Ender Pearl named "{@nazwa}" to {_p}
+	add Enchanted Golden Apple named "{@nazwa}" to {_p}
+	give {_p} 64 cooked porkchop named "{@nazwa}"
+    
+function GiveIronPvPItems(p: player):
+	execute console command "/clear %{_p}%"
+	add iron sword named "{@nazwa}" to {_p}
+	add bow named "{@nazwa}" to {_p}
+	give {_p}  64 arrow named "{@nazwa}"
+	add 16 Ender Pearl named "{@nazwa}" to {_p}
+	add Enchanted Golden Apple named "{@nazwa}" to {_p}
+	give {_p} 64 cooked porkchop named "{@nazwa}"
+	add iron helmet named "{@nazwa}" to {_p}
+	add iron chestplate named "{@nazwa}" to {_p} 
+	add iron leggings named "{@nazwa}" to {_p}
+	add iron boots named "{@nazwa}" to {_p}
+    
+function GiveDiamondPvPItems(p: player):
+	execute console command "/clear %{_p}%"
+	add diamond sword named "{@nazwa}" to {_p}
+	add bow named "{@nazwa}" to {_p}
+	give {_p}  64 arrow named "{@nazwa}"
+	add 16 Ender Pearl named "{@nazwa}" to {_p}
+	add Enchanted Golden Apple named "{@nazwa}" to {_p}
+	give {_p} 64 cooked porkchop named "{@nazwa}"
+	add diamond helmet named "{@nazwa}" to {_p}
+	add diamond chestplate named "{@nazwa}" to {_p} 
+	add diamond leggings named "{@nazwa}" to {_p}
+	add diamond boots named "{@nazwa}" to {_p}
+    
+function GiveBowItems(p: player):
+	execute console command "/clear %{_p}%"
+	add bow named "{@nazwa}" to {_p}
+	give {_p}  64 arrow named "{@nazwa}"
+	add 16 Ender Pearl named "{@nazwa}" to {_p}
+	add Enchanted Golden Apple named "{@nazwa}" to {_p}
+	give {_p} 64 cooked porkchop named "{@nazwa}"
+    
+function MapPreviewTimer(p: player):
+	send "{@GUIprefix} &bZa &460 sekund &bzostaniesz przeteleportowany/a ponownie do miejsca wyboru mapy" to {_p}
+	play sound "block.note_block.pling" at volume 1 at pitch 2 to {_p}
+	wait 50 second
+	send "{@GUIprefix} &4&lPozostało 10 sekund" to {_p}
+	play sound "block.note_block.pling" at volume 1 at pitch 2 to {_p}
+	wait 1 second
+	send "{@GUIprefix} &4&lPozostało 9 sekund" to {_p}
+	play sound "block.note_block.pling" at volume 1 at pitch 2 to {_p}
+	wait 1 second
+	send "{@GUIprefix} &4&lPozostało 8 sekund" to {_p}
+	play sound "block.note_block.pling" at volume 1 at pitch 2 to {_p}
+	wait 1 second
+	send "{@GUIprefix} &4&lPozostało 7 sekund" to {_p}
+	play sound "block.note_block.pling" at volume 1 at pitch 2 to {_p}
+	wait 1 second
+	send "{@GUIprefix} &4&lPozostało 6 sekund" to {_p}
+	play sound "block.note_block.pling" at volume 1 at pitch 2 to {_p}
+	wait 1 second
+	send "{@GUIprefix} &4&lPozostało 5 sekund" to {_p}
+	play sound "block.note_block.pling" at volume 1 at pitch 2 to {_p}
+	wait 1 second
+	send "{@GUIprefix} &4&lPozostało 4 sekund" to {_p}
+	play sound "block.note_block.pling" at volume 1 at pitch 2 to {_p}
+	wait 1 second
+	send "{@GUIprefix} &4&lPozostało 3 sekund" to {_p}
+	play sound "block.note_block.pling" at volume 1 at pitch 2 to {_p}
+	wait 1 second
+	send "{@GUIprefix} &4&lPozostało 2 sekund" to {_p}
+	play sound "block.note_block.pling" at volume 1 at pitch 2 to {_p}
+	wait 1 second
+	send "{@GUIprefix} &4&lPozostało 1 sekund" to {_p}
+	play sound "block.note_block.pling" at volume 1 at pitch 2 to {_p}
